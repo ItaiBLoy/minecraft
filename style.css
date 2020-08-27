@@ -1,0 +1,102 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "SF Text";
+    font-family: 'VT323', monospace;
+}
+
+body {
+    background: #8DBFFF;
+    display: flex;
+    justify-content: space-between;
+}
+
+.world {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    margin: 0 auto;
+    /* width: fit-content; */
+    border: black solid 5px;
+}
+
+
+.sidebar {
+    right: 0;
+    width: 200px;
+    background: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: gray;
+}
+
+.tool {
+    height: 100px;
+    width: 70px;
+    border: gray solid 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: larger;
+}
+
+.tool-pic {
+    height: 70%;
+    width: 100%;
+
+}
+
+.resource {
+    height: 70px;
+    width: 70px;
+}
+.resource-pic {
+    height: 100%;
+    width: 100%;
+}
+
+.reset {
+    height: 70px;
+    width: 70px;
+    border: gray solid 2px;   
+}
+
+.reset-pic {
+    height: 100%;
+    width: 100%;
+}
+
+.tile {
+    height: 20px;
+    width: 40px;
+}
+
+.soil {
+    background: url(./ground.png);
+    height: 100%;
+    width: 100%;
+}
+.stone {
+    background: url(./rock.png);
+    height: 100%;
+    width: 100%;
+}
+.trunk {
+    background: url(./tree_trunk.png);
+    height: 100%;
+    width: 100%;
+}
+.tree {
+    background: url(./leaves.png);
+    height: 100%;
+    width: 100%;
+}
+.cloud {
+    background: white;
+    height: 100%;
+    width: 100%;
+}
