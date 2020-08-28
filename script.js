@@ -27,6 +27,8 @@ let matrix = [
 let world = document.querySelector(".world");
 
 function setWorld(){
+    let birdCount = 0;
+    let bombB = 0;
     for (let row = 0; row < 20; row++){
         for (let col = 0; col < 20; col++){
             let tile = document.createElement("div");
@@ -48,6 +50,20 @@ function setWorld(){
                     tile.classList.add("stone");
                     break;
             }
+            if (row > 0 && row < 7 && (Math.floor(Math.random() * 20)+birdCount) < 10 && matrix[row][col] !== 3){
+                tile.classList.add("bird");
+                birdCount++;
+            }
+
+            if (bombB === 0){
+                let rowBomb = Math.floor(Math.random() * 19) + 14;
+                let colBomb = Math.floor(Math.random() * 19) + 0;
+                if (row === rowBomb && col === colBomb){
+                    tile.classList.add("bomb");
+                    bombB = 1;
+                }
+            }
+
             world.appendChild(tile);
             
         }  
@@ -55,10 +71,15 @@ function setWorld(){
 }
 
 
-
 setWorld();
 
 let hand = "";
+
+world.forEach(item => {
+    item.addEventListener('click', event => {
+          alert("BOOM!!!");
+    })
+  })
 
 document.querySelector(".pickaxe-arsenal").addEventListener("click", function(){
     if (hand === "pickaxe-arsenal"){hand = ""; this.style.background = "none";} 
@@ -87,8 +108,9 @@ document.querySelector(".axe-arsenal").addEventListener("click", function(){
         this.style.background = "blue";}
 });
 
-document.querySelector(".reset").addEventListener("click", setWorld());
-
-this.addEventListener(click, function(){
-    if (hand !== "shoval"){alert(addsdv)}
-});
+// document.querySelector(".reset").addEventListener("click", function(){
+//     for (let i = 0; i < 400; i++){
+//         document.querySelector(".world").deleteCell(0)
+//     }
+//     setWorld()
+// });
